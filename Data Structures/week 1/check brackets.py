@@ -33,12 +33,16 @@ def find_mismatch(text):
         return top.position+1
     
     return "Success"
-            
+  
+          
 def main():
     text = input()
     mismatch = find_mismatch(text)
     print(mismatch)
 
 
+
 if __name__ == "__main__":
     main()
+
+
