@@ -37,6 +37,44 @@ if __name__ == '__main__':
 
 
 
-   
+# Greatest Common Divisor
 
-            
+def gcd_naive(a, b):
+    if a > b:
+        small = b
+    else:
+        small = a
+    for i in range(1, small+1):
+        if a % i == 0 and b % i == 0:
+            gcd = i
+    return gcd
+
+if __name__ == '__main__':
+    a = int(input())
+    b = int(input())
+    print(gcd_naive(a, b))
+
+
+def gcd_fast(a, b):
+    dividend = a if (a >= b) else b
+    divisor = a if (a <= b) else b
+
+    while divisor != 0:
+        remainder = dividend % divisor
+        dividend = divisor
+        divisor = remainder
+
+    return dividend
+
+   
+# Least Common Multiple
+def lcm_naive(a, b):
+    for i in range(1, a*b+1):
+        if i % a == 0 and i % b ==0:
+            return i 
+    return a*b
+
+def lcm_fast(a, b):
+    return (a * b) // gcd_fast(a, b) 
+
+
